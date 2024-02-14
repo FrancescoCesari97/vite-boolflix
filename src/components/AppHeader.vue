@@ -8,6 +8,8 @@
    <div class="container">
     <div class="input-group flex-nowrap search-bar">
     <input type="text" class="form-control" placeholder="movie" aria-label="Username" aria-describedby="addon-wrapping">
+    <button type="button" class="btn btn-primary">search</button>
+
 </div>
 
    </div>
