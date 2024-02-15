@@ -14,7 +14,7 @@ img{
 
 ul{
     list-style: none;
-
+    padding: 0;
 }
 
 body{
@@ -44,4 +44,18 @@ a{
     justify-content: space-between;
     align-items: center;
 
+}
+
+
+.mian{
+    display: flex;
+    justify-content: space-between;
+}
+.lista-film{
+    
+    width: 40%;
+}
+.lista-serie{
+  
+  width: 40%;
 }

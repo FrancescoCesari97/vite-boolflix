@@ -17,8 +17,11 @@ export default{
 
   methods:{
 
-      namesfilter(){
-        axios.get(`https://`+ store.apiUrl + store.apikey + this.movieFilter)
+
+
+
+      getDatafilter(){
+        axios.get( store.apiUri + `search/movie?` + store.apikey + this.movieFilter)
         .then((res) => {
       
          store.movies = res.data.results;
@@ -26,7 +29,16 @@ export default{
           console.log(store.movies);
        });
        
-      }
+       axios.get( store.apiUri + `search/tv?` + store.apikey + this.movieFilter)
+        .then((res) => {
+      
+         store.series = res.data.results;
+
+          console.log(store.series);
+       });
+      },
+
+     
   }
   
 }
@@ -37,11 +49,17 @@ export default{
    <div class="container">
         <div class="input-group flex-nowrap search-bar">
             <input v-model="movieFilter"
-                @keyup="namesfilter()"
+                @keyup="getDatafilter()"
+                
                  type="text" class="form-control"
                   placeholder="movie" 
                   >
-            <button type="button" class="btn btn-primary" @click="namesfilter()">search</button>
+            <button type="button" class="btn btn-primary"
+                @click="getDatafilter()"
+                
+                >
+              search
+            </button>
             
         </div>
     </div>
