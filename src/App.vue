@@ -11,6 +11,11 @@ export default{
     return{
       title: 'Boolflix',
     };
+
+
+  },
+  props: {
+    
   },
 
   components: {AppHeader, AppMain},
