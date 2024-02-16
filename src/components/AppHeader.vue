@@ -24,7 +24,16 @@ export default{
         axios.get( store.apiUri + `search/movie?` + store.apikey + this.movieFilter)
         .then((res) => {
       
-         store.movies = res.data.results;
+         store.movies = res.data.results.map((movie) => {
+
+          return{
+            title: movie.title,
+            original_title: movie.original_title,
+            language: movie.original_language,
+            vote: Math.ceil(movie.vote_average / 2),
+            poster: movie.poster_path,
+          };
+         });
 
           console.log(store.movies);
        });
@@ -32,10 +41,22 @@ export default{
        axios.get( store.apiUri + `search/tv?` + store.apikey + this.movieFilter)
         .then((res) => {
       
-         store.series = res.data.results;
+         store.series = res.data.results.map((serie) => {
 
+          return{
+            title: serie.name,
+            original_title: serie.original_name,
+            language: serie.original_language,
+            vote: Math.ceil(serie.vote_average / 2),
+            poster: serie.poster_path,
+          };
+          });
           console.log(store.series);
        });
+
+
+
+
       },
 
      

@@ -60,10 +60,12 @@ import {store} from '../store'
       class="my-5  border"
          
         >
+        <img class="poster" :src="`https://image.tmdb.org/t/p/w342${movie.poster}`" alt="">
        <p>titolo originale:{{movie.original_title}}</p> 
        <p>titolo: {{movie.title}}</p> 
-       <p>Lingua: <img :src=" getflags(movie.original_language)" alt=""></p>
-       <p>Voto:{{movie.vote_average}}</p> 
+       <p>Lingua: <img class="bandiera" :src=" getflags(movie.language)" alt=""></p>
+       <p>Voto:{{movie.vote}}</p> 
+       <font-awesome-icon v-for="star in 5" :icon="(star <= movie.vote ) ?  'fa-solid fa-star' : 'fa-regular fa-star'" />
         
   
       </li>
@@ -79,10 +81,12 @@ import {store} from '../store'
       class="my-5  border"
          
         >
-       <p>titolo originale:{{serie.original_name}}</p> 
-       <p>titolo: {{serie.name}}</p> 
-       <p>Lingua: <img :src=" getflags(serie.original_language)" alt=""></p>
-       <p>Voto:{{serie.vote_average}}</p> 
+       <img class="poster" :src="`https://image.tmdb.org/t/p/w342${serie.poster}`" alt="">
+       <p>titolo originale:{{serie.original_title}}</p> 
+       <p>titolo: {{serie.title}}</p> 
+       <p>Lingua: <img class="bandiera" :src=" getflags(serie.language)" alt=""></p>
+       <p>Voto:{{serie.vote}}</p>
+       <font-awesome-icon v-for="star in 5" :icon="(star <= serie.vote ) ?  'fa-solid fa-star' : 'fa-regular fa-star'" /> 
         
   
       </li>
@@ -94,8 +98,12 @@ import {store} from '../store'
 
 <style lang="scss" scoped>
 
-img{
-  width: 5%;
+.bandiera{
+  width: 6%;
+}
+
+.poster{
+  width: 50%;
 }
 
 
