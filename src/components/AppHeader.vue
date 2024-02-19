@@ -65,37 +65,53 @@ export default{
 }
 </script>
 
-<template>
+<template class="header">
+  <h1 class="text-center">Boolflix
 
-   <div class="container">
-        <div class="input-group flex-nowrap search-bar">
-            <input v-model="movieFilter"
-                @keyup="getDatafilter()"
-                
-                 type="text" class="form-control"
-                  placeholder="movie" 
-                  >
-            <button type="button" class="btn btn-primary"
-                @click="getDatafilter()"
-                
-                >
-              search
-            </button>
-            
-        </div>
+  </h1>
+
+  <div class="container ">
+
+    <div class="">
+      <div class="input-group flex-nowrap search-bar">
+        <input v-model="movieFilter"
+        @keyup="getDatafilter()"
+        
+        type="text" class="form-control"
+        placeholder="movie" 
+        >
+        <button type="button" class="btn btn-primary"
+        @click="getDatafilter()"
+        
+        >
+        search
+        </button>
+      
+      </div>
     </div>
+  </div >
 
 </template>
 
 <style lang="scss" scoped>
 
-.container{
+.header{
+  background-color: black;
+}
 
+.container{
+    justify-content: center;
     height: 80px;
     
     .search-bar{
         margin-top: 20px;
     }
+}
+
+
+h1{
+  color: red;
+  padding: 30px;
 }
 
 
